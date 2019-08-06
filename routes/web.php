@@ -15,6 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix'=>'sistema'],function(){
+
+Route::resource('categorias','CategoriasController');
+Route::get('categorias/{id}/destroy',['uses'=>'CategoriasController@destroy','as'=>'categorias.destroy']);
+
+
+
+Route::resource('productos','ProductosController');
+Route::get('productos/{id}/destroy',['uses'=>'ProductosController@destroy','as'=>'productos.destroy']);
+
+
+
+
+
+});
+
+
+
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
