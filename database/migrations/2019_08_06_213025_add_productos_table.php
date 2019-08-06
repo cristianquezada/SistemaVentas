@@ -24,7 +24,7 @@ class AddProductosTable extends Migration
 
             
             $table->integer('idCategoria')->unsigned();
-            $table->foreign('idCategoria')->references('idCategoria')->on('categorias')->onDelete('cascade');
+            $table->foreign('idCategoria')->references('id')->on('categorias')->onDelete('cascade');
 
 
 
