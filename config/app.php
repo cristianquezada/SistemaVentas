@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         /* provider personales*/
     Collective\Html\HtmlServiceProvider::class,
-
+    Laracasts\Flash\FlashServiceProvider::class,
     ],
 
     /*
@@ -231,7 +231,8 @@ return [
         /* aliases personales*/
 'Form'=>Collective\Html\FormFacade::class,
 'Html'=>Collective\Html\HtmlFacade::class,
-
+'Flash'=>Laracasts\Flash\Flash::class,
+    
     ],
 
 ];

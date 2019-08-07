@@ -45,6 +45,12 @@ class CategoriasController extends Controller
         $categoria=new Categoria($request->all());
         $categoria->save();
 
+
+
+//mensaje de inserción con éxito
+
+        Flash('Se agregó la categoría '.$categoria->nomCategoria.' con éxito')->success();
+
         return redirect()->route('categorias.index');
     }
 
@@ -88,6 +94,10 @@ $categoria->fill($request->all());
 
 $categoria->save();
 
+//mensaje de actualización con éxito
+
+        Flash('Se actualizó la categoría '.$categoria->nomCategoria.' con éxito')->success();
+
 return redirect()->route('categorias.index');
     }
 
@@ -102,6 +112,11 @@ return redirect()->route('categorias.index');
        
 $categoria=Categoria::find($id);
 $categoria->delete();
+
+
+//mensaje de eliminación con éxito
+
+        Flash('Se eliminó la categoría '.$categoria->nomCategoria.' con éxito')->warning();
 
 return redirect()->route('categorias.index');
     }

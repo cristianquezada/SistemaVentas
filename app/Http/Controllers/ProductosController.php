@@ -53,6 +53,12 @@ $producto->idCategoria=(int)$request->idCategoria;
 $producto->save();
 
 
+//mensaje de inserción con éxito
+
+        Flash('Se agregó el producto '.$producto->nomProducto.' con éxito')->success();
+
+
+
 return redirect()->route('productos.index');
     }
 
@@ -92,12 +98,15 @@ return redirect()->route('productos.index');
     public function update(Request $request, $id)
     {
       $producto=Producto::find($id);
-$producto->fill($request->all());
-$producto->save();
+    $producto->fill($request->all());
+    $producto->save();
 
 
+    //mensaje de actualización con éxito
 
-  return redirect()->route('productos.index');
+        Flash('Se actualizó el producto '.$producto->nomProducto.' con éxito')->success();
+
+    return redirect()->route('productos.index');
     }
 
     /**
@@ -112,6 +121,10 @@ $producto->save();
    
    $producto->delete();
 
+
+    //mensaje de inserción con éxito
+
+        Flash('Se eliminó el producto '.$producto->nomProducto.' con éxito')->warning();
 
    return redirect()->route('productos.index');
     }

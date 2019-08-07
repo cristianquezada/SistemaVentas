@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
        
        User::create(["name"=>"Cristian","email"=>"correo1@gmail.com","password"=>"123456789"]);
 
-       	User::create(["name"=>"Marcelo","email"=>"correo2@gmail.com","password"=>"123456789"]);
+       	User::create(["name"=>"Jairo","email"=>"correo2@gmail.com","password"=>"123456789"]);
 
     	//factory(App\User::class)->times(10)->create();
 
