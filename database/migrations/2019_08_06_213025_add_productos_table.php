@@ -20,7 +20,7 @@ class AddProductosTable extends Migration
             $table->integer('precioCosto');
             $table->integer('precioVenta');
             $table->integer('stockProducto');
-            $table->string('descripcionProducto',200);
+            $table->string('descripcionProducto',500);
 
             
             $table->integer('idCategoria')->unsigned();
