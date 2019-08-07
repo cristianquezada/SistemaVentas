@@ -84,9 +84,9 @@ class CategoriasController extends Controller
     {
       
 $categoria=Categoria::find($id);
-$cargo->fill($request->all());
+$categoria->fill($request->all());
 
-$cargo->save();
+$categoria->save();
 
 return redirect()->route('categorias.index');
     }

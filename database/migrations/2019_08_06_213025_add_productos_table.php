@@ -14,7 +14,7 @@ class AddProductosTable extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->Increments('idProducto');
+            $table->Increments('id');
             $table->string('nomProducto',100);
             $table->string('codProducto',100);
             $table->integer('precioCosto');

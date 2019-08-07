@@ -10,7 +10,7 @@ class Categoria extends Model
 
     protected $fillable=['nomCategoria'];
 
-public function productos(){
+public function producto(){
 
 	return $this->hasMany('App\Producto');
 }

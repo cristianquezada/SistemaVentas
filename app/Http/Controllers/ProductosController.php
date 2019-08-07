@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Producto;
+use Illuminate\Support\Facades\DB;
+
 class ProductosController extends Controller
 {
     /**
@@ -13,7 +16,9 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        //
+       $productos=Producto::orderBy('id','ASC')->get();
+
+    return view('sistema.productos.index',['productos'=>$productos]);
     }
 
     /**
@@ -23,7 +28,9 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        //
+         $categorias = DB::table('categorias')->get();
+            
+       return view('sistema.productos.create', ['categorias' => $categorias]);
     }
 
     /**
@@ -34,7 +41,19 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+$producto=new Producto($request->all());
+
+$producto->precioCosto=(int)$request->precioCosto;
+$producto->precioVenta=(int)$request->precioVenta;
+$producto->stockProducto=(int)$request->stockProducto;
+$producto->idCategoria=(int)$request->idCategoria;
+//dd($producto);
+
+$producto->save();
+
+
+return redirect()->route('productos.index');
     }
 
     /**
@@ -56,7 +75,11 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto=Producto::find($id);
+        $categorias = DB::table('categorias')->get();
+           
+      return view('sistema.productos.edit')->with(array('producto'=>$producto,'categorias'=>$categorias));
+
     }
 
     /**
@@ -68,7 +91,13 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $producto=Producto::find($id);
+$producto->fill($request->all());
+$producto->save();
+
+
+
+  return redirect()->route('productos.index');
     }
 
     /**
@@ -79,6 +108,11 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $producto= Producto::find($id);
+   
+   $producto->delete();
+
+
+   return redirect()->route('productos.index');
     }
 }

@@ -9,11 +9,11 @@ class Producto extends Model
     
 	protected $table="productos";
 
-	protected $fillable=['nomProducto',	'codProducto',	'precioCosto	precioVenta','	stockProducto',	'descripcionProducto',	'id'];
+	protected $fillable=['nomProducto',	'codProducto',	'precioCosto',	'precioVenta','stockProducto',	'descripcionProducto','idCategoria'];
 
 
-public function categorias(){
-	return $this->belongTo('App\Categoria','id');
+public function categoria(){
+	return $this->belongTo('App\Categoria','idCategoria');
 }
 
 
