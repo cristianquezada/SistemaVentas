@@ -26,6 +26,7 @@ Route::resource('productos','ProductosController');
 Route::get('productos/{id}/destroy',['uses'=>'ProductosController@destroy','as'=>'productos.destroy']);
 
 
+Route::resource('ventas','VentasController');
 
 
 
