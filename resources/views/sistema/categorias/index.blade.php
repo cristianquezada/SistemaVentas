@@ -22,7 +22,8 @@
 					
 				
 				<td>
-					<a href="{{ route('categorias.edit',$categoria->id)}}" class="btn btn-warning" >Editar</a>
+					<a href="{{ route('categorias.show',$categoria->slug)}}" class="btn btn-primary" >Ver</a>
+					<a href="{{ route('categorias.edit',$categoria->slug)}}" class="btn btn-warning" >Editar</a>
 				<a href="{{ route('categorias.destroy',$categoria->id)}}" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminar esta categoría?')" >Eliminar</a> 
 				</td>
 				</tr>

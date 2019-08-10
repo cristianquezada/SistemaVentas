@@ -60,9 +60,10 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $categoria=Categoria::where('slug','=',$slug)->firstOrFail();
+        return view('sistema.categorias.show')->with('categoria',$categoria);
     }
 
     /**
@@ -71,10 +72,15 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-      $categoria=Categoria::find($id);
 
+//con slug
+        $categoria=Categoria::where('slug','=',$slug)->firstOrFail();
+      
+      //para encontrar con el id si es q se recibe un id
+      //$categoria=Categoria::find($id);
+//dd($categoria);
       return view('sistema.categorias.edit')->with('categoria',$categoria);
 
     }

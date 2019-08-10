@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'sistema'],function(){
 
 Route::resource('categorias','CategoriasController');
+Route::get('categorias/{slug}/edit',['uses'=>'CategoriasController@edit','as'=>'categorias.edit']);
 Route::get('categorias/{id}/destroy',['uses'=>'CategoriasController@destroy','as'=>'categorias.destroy']);
 
 
