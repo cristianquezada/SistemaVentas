@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Categoria;
+use App\Producto;
 class VentasController extends Controller
 {
     /**
@@ -14,9 +15,7 @@ class VentasController extends Controller
     public function index()
     {
         
-
-
-        return view('sistema.ventas.index');
+              return view('sistema.ventas.index');
     }
 
     /**
@@ -27,8 +26,10 @@ class VentasController extends Controller
     public function create()
     {
         
+        $categorias=Categoria::orderBy('id','ASC')->get();
+        $productos=Producto::orderBy('id','ASC')->get();
+        return view('sistema.ventas.create',['categorias'=>$categorias,'productos'=>$productos]);
 
-        return view('sistema.ventas.create');
     }
 
     /**
