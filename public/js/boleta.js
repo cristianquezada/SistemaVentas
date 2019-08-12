@@ -45,8 +45,8 @@ function myFunction() {
       dia="0"+dia;
 
    var date=f.getFullYear() + "-" +mes + "-" +dia ;
-    alert(totales);
-
+    //alert(totales);
+console.log(totales);
 
 
 
@@ -75,7 +75,8 @@ function myFunction() {
       ,
       
       };
-      
+     
+
       $.ajax(settings).done(function (response) {
        console.log(response);
       });
